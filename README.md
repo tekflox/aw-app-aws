@@ -1,6 +1,6 @@
 # aw-app-aws
 
-Decoupled app for aw-workspace, mirroring
+AW workspace app mirroring
 [`aw-app-git`](https://github.com/tekflox/aw-app-git)'s structure
 (`aw-app.json` manifest schema v1). Installs the **AWS CLI v2** into the
 workspace and provides a settings panel for AWS credentials (access key,
