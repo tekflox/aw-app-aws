@@ -2,18 +2,20 @@
   "manifest_version": 1,
   "id": "aws",
   "name": "AWS CLI",
-  "version": "0.1.0",
-  "description": "Installs the AWS CLI v2 into the workspace and provides a settings panel for AWS credentials (access key, secret key, region, session token — applied via `aws configure`).",
+  "version": "0.2.0",
+  "description": "Installs the AWS CLI v2 into the workspace and provides a settings panel for AWS credentials (access key, secret key, region, session token \u2014 applied via `aws configure`).",
   "tier": "inprocess",
   "publisher": "TekFlox",
-  "resource_estimate": { "cpu": "low", "memory": "-", "disk": "~250 MB" },
-
+  "resource_estimate": {
+    "cpu": "low",
+    "memory": "-",
+    "disk": "~250 MB"
+  },
   "runtime": {
     "python": ">=3.11",
     "entrypoint": "aws_app.plugin:AwsAppPlugin",
     "pip_requires": []
   },
-
   "permissions": [
     "commands:install",
     "routes:register",
@@ -21,17 +23,26 @@
     "fs:workspace-data",
     "net:outbound"
   ],
-
   "contributes": {
-    "routes": [{ "prefix": "/api/apps/aws" }],
+    "routes": [
+      {
+        "prefix": "/api/apps/aws"
+      }
+    ],
     "system_clis": [
-      { "name": "aws", "installer": "scripts/install_aws.sh", "version": ">=2" }
+      {
+        "name": "aws",
+        "installer": "scripts/install_aws.sh",
+        "version": ">=2"
+      }
     ],
     "settings_panels": [
-      { "id": "aws.settings", "schema_ref": "#/config_schema" }
+      {
+        "id": "aws.settings",
+        "schema_ref": "#/config_schema"
+      }
     ]
   },
-
   "config_schema": {
     "type": "object",
     "properties": {
@@ -42,7 +53,7 @@
       "aws_secret_access_key": {
         "type": "string",
         "x-secret": true,
-        "description": "AWS secret access key. Never stored in plain config — routed to the zero-knowledge secret store."
+        "description": "AWS secret access key. Never stored in plain config \u2014 routed to the zero-knowledge secret store."
       },
       "aws_default_region": {
         "type": "string",
@@ -57,7 +68,6 @@
     },
     "required": []
   },
-
   "dependencies": {},
   "migrations": {}
 }
