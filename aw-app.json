@@ -6,11 +6,8 @@
   "description": "Installs the AWS CLI v2 into the workspace and provides a settings panel for AWS credentials (access key, secret key, region, session token \u2014 applied via `aws configure`).",
   "tier": "inprocess",
   "publisher": "TekFlox",
-  "resource_estimate": {
-    "cpu": "low",
-    "memory": "-",
-    "disk": "~250 MB"
-  },
+  "resource_estimate": { "cpu": "low", "memory": "low", "disk": "~250 MB" },
+
   "runtime": {
     "python": ">=3.11",
     "entrypoint": "aws_app.plugin:AwsAppPlugin",
