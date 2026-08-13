@@ -43,8 +43,12 @@ class AwsAppPlugin:
         with open(os.path.join(ctx.package_dir, "aw-app.json"), encoding="utf-8") as f:
             manifest = json.load(f)
         for cli in manifest.get("contributes", {}).get("system_clis", []):
+            # `verify` decides what "installed" MEANS: a command that has to
+            # succeed, not just the name being on PATH. Defaults to
+            # `<name> --version` when the manifest doesn't say otherwise.
             ctx.commands.install_system_cli(
-                cli["name"], cli["installer"], uninstall="scripts/uninstall.sh"
+                cli["name"], cli["installer"], uninstall="scripts/uninstall.sh",
+                verify=cli.get("verify"),
             )
         log.info("aw-app-aws activated: aws cli installed")
 
