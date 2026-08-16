@@ -2,7 +2,7 @@
   "manifest_version": 1,
   "id": "aws",
   "name": "AWS CLI",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Installs the AWS CLI v2 into the workspace and provides a settings panel for AWS credentials (access key, secret key, region, session token \u2014 applied via `aws configure`).",
   "tier": "inprocess",
   "publisher": "TekFlox",
